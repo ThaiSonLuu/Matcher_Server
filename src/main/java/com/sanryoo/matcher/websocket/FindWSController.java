@@ -31,6 +31,7 @@ public class FindWSController {
 
     @MessageMapping("/find")
     public void find(User user) {
+        logger.info("User: " + user.getUsername() + " is finding ...");
         new Thread(() -> {
             int i = 1;
             while (i <= 20) {
@@ -99,12 +100,13 @@ public class FindWSController {
             if (data + confirmData.getData() <= 1) {
                 simpMessagingTemplate.convertAndSend("/response/confirm/" + listId[0], "0");
                 simpMessagingTemplate.convertAndSend("/response/confirm/" + listId[1], "0");
+                logger.info("Cancel find for: " + listId[0] + " and " + listId[1]);
             } else {
                 simpMessagingTemplate.convertAndSend("/response/confirm/" + listId[0], "1");
                 simpMessagingTemplate.convertAndSend("/response/confirm/" + listId[1], "1");
+                logger.info("Match for: " + listId[0] + " and " + listId[1]);
             }
             listUsersMatched.remove(confirmData.getIds());
-            logger.info("Remove hash map: " + confirmData.getIds());
         }
     }
 

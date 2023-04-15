@@ -81,6 +81,10 @@
    ```text
    docker exec -it matcher-server bash
    ```
+   To see logs of server
+   ```text
+   docker logs -f matcher-server
+   ```
 ### Manner 2. Use terminal or IDE
  - Step 1: clone code
    ```text

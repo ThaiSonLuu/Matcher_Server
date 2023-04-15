@@ -88,7 +88,7 @@ public class UserController {
                 .map(user -> {
                     if (BCrypt.checkpw(oldPassword, user.getPassword())) {
                         user.setPassword(BCrypt.hashpw(newPassword, BCrypt.gensalt(12)));
-                        logger.info("User: " + user.getUsername() + " changed password");
+                        logger.info("User: " + user.getUsername() + " just changed password");
                         return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject(200, "ok", "Change password successfully", userRepository.save(user)));
                     } else {
                         return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject(400, "failed", "Wrong password", new User()));

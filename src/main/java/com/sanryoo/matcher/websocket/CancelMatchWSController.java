@@ -85,7 +85,6 @@ public class CancelMatchWSController {
                 throw new RuntimeException(e);
             }
         }
-
         logger.info("Canceled match for " + listId[0] + " and " + listId[1]);
     }
 }

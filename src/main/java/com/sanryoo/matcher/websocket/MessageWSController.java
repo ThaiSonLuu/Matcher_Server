@@ -4,12 +4,10 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
 import com.google.firebase.messaging.Notification;
-import com.sanryoo.matcher.modal.User;
 import com.sanryoo.matcher.modal.MatcherMessage;
-import com.sanryoo.matcher.repository.UserRepository;
+import com.sanryoo.matcher.modal.User;
 import com.sanryoo.matcher.repository.MessageRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.sanryoo.matcher.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -21,8 +19,6 @@ import java.util.Date;
 
 @Controller
 public class MessageWSController {
-
-    private final Logger logger = LoggerFactory.getLogger(MessageWSController.class);
 
     @Autowired
     MessageRepository messageRepository;
